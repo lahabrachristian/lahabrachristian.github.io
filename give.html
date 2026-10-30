@@ -1,0 +1,38 @@
+---
+layout: default
+nav: give
+head_title: "Give · La Habra Christian Church"
+description: "Give online or by mail to support La Habra Christian Church."
+---
+{%- assign s = site.data.settings -%}{%- assign d = site.data.give -%}
+<main id="main">
+  <section class="page-hero give give-hero" aria-labelledby="page-title">
+    <p class="num">06 — Give</p>
+    <h1 class="page-title" id="page-title">{{ d.title }}</h1>
+    <p class="lead page-lead">{% include md.html text=d.intro %}</p>
+    <p class="give-copy">{% include md.html text=d.text %}</p>
+    <div class="btn-row"><a class="btn btn-light" href="{{ s.giving_link }}" target="_blank" rel="noopener">{{ d.button_label }} <span class="arr" aria-hidden="true">&rarr;</span></a></div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-ways">
+    <p class="num">{{ d.ways_label }}</p>
+    <h2 class="serif-head" id="h-ways">{% include md.html text=d.ways_heading %}</h2>
+    <ul class="expect">
+      {%- for w in d.ways %}
+      <li><span>{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><div><h3>{{ w.title }}</h3><p>{% include md.html text=w.text %}</p></div></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section class="sec sec-tint" aria-labelledby="h-where">
+    <p class="num">{{ d.where_label }}</p>
+    <h2 class="serif-head" id="h-where">{% include md.html text=d.where_heading %}</h2>
+    <div class="cols">
+      <p class="lead">{% include md.html text=d.where_text %}</p>
+      {%- if d.where_photo %}
+      <figure class="side-photo"><img src="{{ d.where_photo | relative_url }}" width="600" height="780" alt="{{ d.where_photo_description }}" loading="lazy"></figure>
+      {%- endif %}
+    </div>
+  </section>
+  <a class="next" href="contact.html"><span class="eyebrow">Next</span><span class="next-name">Contact <span class="arr" aria-hidden="true">&rarr;</span></span></a>
+</main>

@@ -1,0 +1,46 @@
+---
+layout: default
+nav: contact
+head_title: "Contact · La Habra Christian Church"
+description: "Phone (562) 691-0514, email, pastors, office hours and prayer requests."
+---
+{%- assign s = site.data.settings -%}{%- assign d = site.data.contact -%}{%- capture tel %}{% include tel.html phone=s.phone %}{% endcapture -%}{%- assign email_parts = s.email | split: "@" -%}
+<main id="main">
+  <section class="page-hero" aria-labelledby="page-title">
+    <p class="num">07 — Contact</p>
+    <h1 class="page-title" id="page-title">{{ d.title }}</h1>
+    <p class="lead page-lead">{% include md.html text=d.intro %}</p>
+  </section>
+
+  <section class="sec sec-flush" aria-labelledby="h-reach">
+    <h2 class="sr-only" id="h-reach">Phone and email</h2>
+    <div class="contact-big">
+      <a href="{{ tel }}"><span class="eyebrow">Call</span>{{ s.phone }}</a>
+      <a class="c-email" href="mailto:{{ s.email }}"><span class="eyebrow">Email</span>{{ email_parts[0] }}@<wbr>{{ email_parts[1] }}</a>
+    </div>
+  </section>
+
+  <section class="sec sec-tint" aria-labelledby="h-pastors">
+    <p class="num">{{ d.pastors_label }}</p>
+    <h2 class="serif-head" id="h-pastors">{% include md.html text=d.pastors_heading %}</h2>
+    <ol class="rows contact-rows">
+      {%- for p in site.data.pastors %}
+      <li><span class="r-num">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><span class="r-name">{{ p.name }}</span><span class="r-meta">{{ p.role }}{% if p.email and p.email != "" %} · <a href="mailto:{{ p.email }}">Email</a>{% endif %}{% if p.extension and p.extension != "" %} · <a href="{{ tel }},{{ p.extension }}">Ext. {{ p.extension }}</a>{% endif %}</span></li>
+      {%- endfor %}
+    </ol>
+  </section>
+
+  <section class="sec" aria-labelledby="h-prayer">
+    <p class="num">{{ d.prayer_label }}</p>
+    <h2 class="serif-head" id="h-prayer">{% include md.html text=d.prayer_heading %}</h2>
+    <div class="cols">
+      <p class="lead">{% include md.html text=d.prayer_text %}</p>
+      <dl class="hours">
+        {%- for h in d.office_list %}
+        <div><dt>{{ h.label }}</dt><dd>{{ h.value }}</dd></div>
+        {%- endfor %}
+      </dl>
+    </div>
+  </section>
+  <a class="next" href="index.html"><span class="eyebrow">Next</span><span class="next-name">Back home <span class="arr" aria-hidden="true">&rarr;</span></span></a>
+</main>

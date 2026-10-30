@@ -1,0 +1,28 @@
+hero_photo: /images/hero-hills.jpg
+hero_photo_description: Golden-hour view over the green hills of La Habra Heights
+hero_caption: La Habra Heights, California
+photo_strip:
+- photo: /images/worship.jpg
+  description: The congregation worshipping in the sanctuary
+  label: Worship
+- photo: /images/golden-hills.jpg
+  description: Sunlit golden grass on a hillside at sunset
+  label: Grow
+- photo: /images/community.jpg
+  description: Neighbors gathered at the church car show, seen from above
+  label: Serve
+welcome_label: Welcome
+welcome_heading: Sharing Jesus by *caring* for people
+welcome_intro: Whoever you are and wherever you’re coming from, you’re welcome here. We’d love to meet you, worship together, and walk through life with you.
+welcome_text: A church family of all ages in the hills of La Habra Heights, part of this community since 1923.
+explore_label: Explore
+explore_heading: Find your *way* around
+explore_about: Our story, beliefs & pastors
+explore_sundays: what to expect
+explore_visit: Map, directions & office hours
+explore_get_involved: Ministries, weekly groups & events
+explore_give: Support the ministry online
+explore_contact: Call, email & prayer requests
+online_label: Can’t make it Sunday?
+online_heading: Worship with us *online*
+online_text: Our Sunday service streams live on YouTube, and past sermons are there anytime.

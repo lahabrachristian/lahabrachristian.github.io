@@ -1,0 +1,18 @@
+title: Give
+intro: Generosity that serves our neighbors.
+text: Your giving supports Sunday worship, our ministries for every age, and caring for people in need right here in our community.
+button_label: Give Online
+ways_label: Ways to give
+ways_heading: Simple & *secure*
+ways:
+- title: Online
+  text: Give once or set up recurring giving through [Church Center](https://mylhcc.churchcenter.com/giving).
+- title: By mail
+  text: La Habra Christian Church, PO Box 3258, La Habra, CA 90632-3258.
+- title: Questions?
+  text: Call the office at [(562) 691-0514](tel:+15626910514).
+where_label: Where it goes
+where_heading: Caring for *people*
+where_text: From kids’ ministry to food for families in need, your generosity turns into care for real people in La Habra and beyond.
+where_photo: /images/golden-hills.jpg
+where_photo_description: Sunlit golden grass on a hillside at sunset

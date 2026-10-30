@@ -1,0 +1,86 @@
+---
+layout: default
+nav: get-involved
+head_title: "Get Involved · La Habra Christian Church"
+description: "Ministries for every age, weekly gatherings and upcoming events. La Habra Christian Church in La Habra Heights, California. Sundays [time]."
+---
+{%- assign s = site.data.settings -%}{%- assign d = site.data.get_involved -%}
+<main id="main">
+  <section class="page-hero" aria-labelledby="page-title">
+    <p class="num">05 — Get Involved</p>
+    <h1 class="page-title" id="page-title">{{ d.title }}</h1>
+    <p class="lead page-lead">{% include md.html text=d.intro %}</p>
+    {%- if d.photo %}
+    <figure class="page-photo"><img src="{{ d.photo | relative_url }}" alt="{{ d.photo_description }}" style="object-position:{{ d.photo_position | default: '50% 50%' }}"></figure>
+    {%- endif %}
+  </section>
+
+  <section class="sec" aria-labelledby="h-min">
+    <p class="num">{{ d.ministries_label }}</p>
+    <h2 class="serif-head" id="h-min">{% include md.html text=d.ministries_heading %}</h2>
+    <ol class="rows rows-desc">
+      {%- for m in d.ministries %}
+      <li><span class="r-num">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><span class="r-name">{{ m.name }}</span><span class="r-meta">{{ m.detail }}</span><p class="r-desc">{% include md.html text=m.description %}</p></li>
+      {%- endfor %}
+    </ol>
+  </section>
+
+  <section class="sec sec-tint" aria-labelledby="h-week">
+    <p class="num">{{ d.weekly_label }}</p>
+    <h2 class="serif-head" id="h-week">{% include md.html text=d.weekly_heading %}</h2>
+    <ul class="expect">
+      {%- for w in d.weekly %}
+      <li><span>{{ w.day }}</span><div><h3>{{ w.title }}</h3><p>{% include md.html text=w.text %}</p></div></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  {%- assign today = site.time | date: "%Y-%m-%d" -%}
+  {%- assign all_events = site.events | sort: "date" -%}
+  {%- assign upcoming = "" | split: "" -%}
+  {%- for e in all_events -%}{%- assign ed = e.date | date: "%Y-%m-%d" -%}{%- if ed >= today -%}{%- assign upcoming = upcoming | push: e -%}{%- endif -%}{%- endfor %}
+  <section class="sec" aria-labelledby="h-events">
+    <p class="num">{{ d.events_label }}</p>
+    <h2 class="serif-head" id="h-events">{% include md.html text=d.events_heading %}</h2>
+    {%- if upcoming.size > 0 %}
+    <div class="event-list" data-event-list>
+      {%- for e in upcoming %}
+      <article class="events{% unless e.photo %} no-photo{% endunless %}" data-date="{{ e.date | date: '%Y-%m-%d' }}">
+        {%- if e.photo %}<img src="{{ e.photo | relative_url }}" width="1280" height="720" alt="{{ e.title }}" loading="lazy">{% endif %}
+        <div class="events-body">
+          <p class="eyebrow">{{ e.date | date: "%A, %B %-d" }}{% if e.time and e.time != "" %} · {{ e.time }}{% endif %}</p>
+          <h3>{{ e.title }}</h3>
+          {%- if e.location and e.location != "" %}<p class="muted">{{ e.location }}</p>{% endif %}
+          {%- if e.description and e.description != "" %}<p class="e-desc">{% include md.html text=e.description %}</p>{% endif %}
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+    <div class="events" data-no-events{% if upcoming.size > 0 %} hidden{% endif %}>
+      <img src="{{ d.no_events_photo | relative_url }}" width="1280" height="720" alt="{{ d.no_events_photo_description }}" loading="lazy">
+      <div class="events-body">
+        <p class="eyebrow">Upcoming events</p>
+        <h3>{{ d.no_events_title }}</h3>
+        <p class="muted">{% include md.html text=d.no_events_text %}</p>
+      </div>
+    </div>
+  </section>
+  {%- assign photos = site.data.gallery.photos -%}
+  {%- if photos and photos.size > 0 %}
+
+  <section class="sec sec-tint" aria-labelledby="h-photos">
+    <p class="num">{{ d.photos_label }}</p>
+    <h2 class="serif-head" id="h-photos">{% include md.html text=d.photos_heading %}</h2>
+    <div class="gallery">
+      {%- for p in photos %}{% if p.photo %}
+      <figure><img src="{{ p.photo | relative_url }}" alt="{{ p.caption | default: 'Photo from church life' }}" loading="lazy">{% if p.caption and p.caption != "" %}<figcaption>{{ p.caption }}</figcaption>{% endif %}</figure>
+      {%- endif %}{% endfor %}
+    </div>
+  </section>
+  {%- endif %}
+  <a class="next" href="give.html"><span class="eyebrow">Next</span><span class="next-name">Give <span class="arr" aria-hidden="true">&rarr;</span></span></a>
+</main>
+<script>
+(function(){var t=new Date();t.setHours(0,0,0,0);var list=document.querySelector('[data-event-list]');if(!list)return;var shown=0;list.querySelectorAll('[data-date]').forEach(function(el){var p=el.getAttribute('data-date').split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);if(d<t){el.hidden=true;}else{shown++;}});if(!shown){list.hidden=true;var n=document.querySelector('[data-no-events]');if(n)n.hidden=false;}})();
+</script>

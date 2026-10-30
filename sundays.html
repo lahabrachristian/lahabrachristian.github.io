@@ -1,0 +1,55 @@
+---
+layout: default
+nav: sundays
+head_title: "Sundays · La Habra Christian Church"
+description: "Sunday worship at [time], what to expect, kids, and livestream."
+---
+{%- assign s = site.data.settings -%}{%- assign d = site.data.sundays -%}{%- assign tparts = s.service_time | split: " " -%}
+<main id="main">
+  <section class="page-hero" aria-labelledby="page-title">
+    <p class="num">03 — Sundays</p>
+    <h1 class="page-title" id="page-title">{{ d.title }}</h1>
+    <p class="lead page-lead">{% include md.html text=d.intro %}</p>
+    {%- if d.photo %}
+    <figure class="page-photo"><img src="{{ d.photo | relative_url }}" alt="{{ d.photo_description }}" style="object-position:{{ d.photo_position | default: '50% 50%' }}"></figure>
+    {%- endif %}
+  </section>
+
+  <section class="sec sec-tint" aria-labelledby="h-sundays">
+    <p class="num">{{ d.times_label }}</p>
+    <div class="sunday-grid">
+      <div>
+        <h2 class="sr-only" id="h-sundays">Sunday worship time: {{ s.service_time }}</h2>
+        <p class="day" aria-hidden="true">{{ d.day_label }}</p>
+        <p class="big-time" aria-hidden="true">{{ tparts[0] }}{% if tparts[1] %}<small>{{ tparts[1] }}</small>{% endif %}</p>
+                <p class="muted">{{ d.service_note }}</p>
+      </div>
+      <ul class="expect" aria-label="What to expect">
+        {%- assign letters = "A,B,C,D,E,F,G,H" | split: "," -%}
+        {%- for e in d.expect %}
+        <li><span>{{ letters[forloop.index0] }}</span><div><h3>{{ e.title }}</h3><p>{% include md.html text=e.text %}</p></div></li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-kids">
+    <p class="num">{{ d.kids_label }}</p>
+    <h2 class="serif-head" id="h-kids">{% include md.html text=d.kids_heading %}</h2>
+    <div class="cols">
+      <p class="lead">{% include md.html text=d.kids_intro %}</p>
+      <p>{% include md.html text=d.kids_text %}</p>
+    </div>
+  </section>
+
+  <section class="sec give" aria-labelledby="h-live">
+    <p class="num">{{ d.online_label }}</p>
+    <h2 class="serif-head light" id="h-live">{% include md.html text=d.online_heading %}</h2>
+    <p class="give-copy">{% include md.html text=d.online_text %}</p>
+    <div class="btn-row">
+      <a class="btn btn-light" href="{{ s.livestream_link }}" target="_blank" rel="noopener">Watch Live <span class="arr" aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-light" href="{{ s.youtube_link }}" target="_blank" rel="noopener">Past Sermons <span aria-hidden="true">&nearr;</span></a>
+    </div>
+  </section>
+  <a class="next" href="visit.html"><span class="eyebrow">Next</span><span class="next-name">Plan a visit <span class="arr" aria-hidden="true">&rarr;</span></span></a>
+</main>

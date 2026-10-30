@@ -1,0 +1,77 @@
+{%- assign s = site.data.settings -%}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ page.head_title | replace: "[time]", s.service_time }}</title>
+<meta name="description" content="{{ page.description | replace: "[time]", s.service_time }}">
+<meta name="theme-color" content="#F3EFE6">
+<meta property="og:title" content="{{ page.og_title | default: page.head_title | replace: "[time]", s.service_time }}">
+<meta property="og:description" content="{{ page.description | replace: "[time]", s.service_time }}">
+<meta property="og:image" content="{{ '/og.png' | absolute_url }}">
+<link rel="preload" href="fonts/InterTight-normal-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <a class="brand" href="index.html" aria-label="{{ s.church_name }}, home">{{ s.short_name }}<span>&reg;</span></a>
+  <p class="top-intro">{{ s.tagline }}</p>
+  <nav class="nav" aria-label="Main">
+    <a href="about.html"{% if page.nav == "about" %} aria-current="page"{% endif %}>About</a>
+    <a href="sundays.html"{% if page.nav == "sundays" %} aria-current="page"{% endif %}>Sundays</a>
+    <a href="visit.html"{% if page.nav == "visit" %} aria-current="page"{% endif %}>Visit</a>
+    <a href="get-involved.html"{% if page.nav == "get-involved" %} aria-current="page"{% endif %}>Get Involved</a>
+    <a href="give.html"{% if page.nav == "give" %} aria-current="page"{% endif %}>Give</a>
+    <a href="contact.html"{% if page.nav == "contact" %} aria-current="page"{% endif %}>Contact</a>
+  </nav>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+</header>
+
+<div class="menu" id="menu" hidden>
+  <ol class="menu-list">
+    <li><a href="index.html"{% if page.nav == "home" %} aria-current="page"{% endif %}><span>01</span>Home</a></li>
+    <li><a href="about.html"{% if page.nav == "about" %} aria-current="page"{% endif %}><span>02</span>About</a></li>
+    <li><a href="sundays.html"{% if page.nav == "sundays" %} aria-current="page"{% endif %}><span>03</span>Sundays</a></li>
+    <li><a href="visit.html"{% if page.nav == "visit" %} aria-current="page"{% endif %}><span>04</span>Visit</a></li>
+    <li><a href="get-involved.html"{% if page.nav == "get-involved" %} aria-current="page"{% endif %}><span>05</span>Get Involved</a></li>
+    <li><a href="give.html"{% if page.nav == "give" %} aria-current="page"{% endif %}><span>06</span>Give</a></li>
+    <li><a href="contact.html"{% if page.nav == "contact" %} aria-current="page"{% endif %}><span>07</span>Contact</a></li>
+  </ol>
+  <p class="menu-foot">{{ s.service_day }} · {{ s.service_time }}<br>{{ s.address_line_1 }}, {{ s.address_line_2 | split: "," | first }}</p>
+</div>
+
+{{ content }}
+<footer class="foot">
+  <div class="foot-grid">
+    <div>
+      <p class="foot-h">Say hello</p>
+      <p><a href="{% include tel.html phone=s.phone %}">{{ s.phone }}</a><br><a href="mailto:{{ s.email }}">{{ s.email }}</a></p>
+    </div>
+    <div>
+      <p class="eyebrow">Visit</p>
+      <p>{{ s.address_line_1 }}<br>{{ s.address_line_2 }}<br>{{ s.service_day }} · {{ s.service_time }}</p>
+    </div>
+    <div>
+      <p class="eyebrow">Follow</p>
+      <p><a href="{{ s.instagram_link }}" target="_blank" rel="noopener">Instagram</a><br><a href="{{ s.facebook_link }}" target="_blank" rel="noopener">Facebook</a><br><a href="{{ s.youtube_link }}" target="_blank" rel="noopener">YouTube</a></p>
+    </div>
+  </div>
+  <nav class="foot-nav" aria-label="Footer">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="sundays.html">Sundays</a>
+    <a href="visit.html">Visit</a>
+    <a href="get-involved.html">Get Involved</a>
+    <a href="give.html">Give</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <p class="foot-mark" aria-hidden="true">{{ s.church_name }}</p>
+  <p class="credits">&copy; {{ site.time | date: "%Y" }} {{ s.church_name }}. {{ s.photo_credits }}</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

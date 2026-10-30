@@ -1,0 +1,49 @@
+title: Get involved
+intro: Church is more than a Sunday service. Find community, grow together, and serve throughout the week.
+photo: /images/community.jpg
+photo_description: Neighbors gathered at the church car show, seen from above
+photo_position: 50% 50%
+ministries_label: Ministries
+ministries_heading: Find your *place*
+ministries:
+- name: Children’s Ministry
+  detail: 6 weeks – 5th grade
+  description: Helping children discover God’s love in a fun, nurturing environment through engaging lessons, games and friendships.
+- name: Fusion Youth
+  detail: Students
+  description: Empowering the next generation to grow in their relationship with Christ through weekly gatherings, events and service.
+- name: Young Adults
+  detail: College & young pros
+  description: Connect with peers, deepen your faith and navigate life together.
+- name: Women’s Ministry
+  detail: All ages
+  description: A supportive community where women grow in faith, build friendships and serve others.
+- name: Men’s Ministry
+  detail: All ages
+  description: Men connecting, supporting each other and growing stronger in their walk with Christ.
+- name: ESL Ministry
+  detail: Tuesdays · 6:30 PM · Room 6
+  description: A fun group that loves to worship and practice conversational English. Open to all levels.
+- name: Benevolence
+  detail: Helping neighbors
+  description: Practical help and support for people in need in our community.
+weekly_label: During the week
+weekly_heading: Weekly *gatherings*
+weekly:
+- day: WED
+  title: Creative Art Class · 10:30 AM
+  text: Open to every skill level. Relax, learn and connect through art.
+- day: WED
+  title: Prayer Night · 7:00 PM on Zoom
+  text: Anyone can join us to pray. [Send a prayer request](contact.html).
+- day: THU
+  title: Home Group · 6:30 PM
+  text: Study Scripture, share life and pray together in a smaller setting, hosted by Joe Laubie.
+events_label: Events
+events_heading: Coming *up*
+no_events_photo: /images/community-wide.jpg
+no_events_photo_description: Crowd and classic cars at the church car show
+no_events_title: New dates coming soon
+no_events_text: Service at the Park, Vacation Bible School, the LHCC Car Show, outreach nights and more. Check back here for what’s next.
+photos_label: Photos
+photos_heading: Life at *LHCC*

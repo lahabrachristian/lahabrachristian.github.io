@@ -1,0 +1,669 @@
+media:
+  input: images
+  output: /images
+  rename: safe
+  extensions:
+  - jpg
+  - jpeg
+  - png
+  - webp
+  - gif
+content:
+- name: events
+  label: 📅 Events
+  type: collection
+  path: _events
+  format: yaml-frontmatter
+  exclude:
+  - .gitkeep
+  filename: '{date}-{title}.md'
+  view:
+    fields:
+    - title
+    - date
+    - time
+    primary: title
+    sort:
+    - date
+    - title
+    default:
+      sort: date
+      order: asc
+  fields:
+  - name: title
+    label: Event name
+    type: string
+    required: true
+  - name: date
+    label: Date
+    type: date
+    required: true
+    options:
+      format: yyyy-MM-dd
+  - name: time
+    label: Time
+    type: string
+    description: e.g. 10:00 AM or 6:00 – 8:00 PM
+  - name: location
+    label: Where
+    type: string
+    description: Optional, e.g. Fellowship Hall or La Habra Heights Park
+  - name: description
+    label: Description
+    type: text
+    description: 'Optional. You can add a link like this: [words](https://link.com)'
+  - name: photo
+    label: Photo
+    type: image
+    description: Optional. Events show on the Get Involved page and disappear by themselves after the date passes.
+- name: gallery
+  label: 📷 Photo gallery
+  type: file
+  path: _data/gallery.yml
+  format: yaml
+  fields:
+  - name: photos
+    label: Photos
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{caption}'
+    description: Photos show in a “Life at LHCC” section on the Get Involved page. Leave empty to hide the section.
+    fields:
+    - name: photo
+      label: Photo
+      type: image
+    - name: caption
+      label: Caption
+      type: string
+      description: Optional, e.g. Car Show 2026
+- name: settings
+  label: ⛪ Church info (time, address, phone)
+  type: file
+  path: _data/settings.yml
+  format: yaml
+  fields:
+  - name: service_time
+    label: Sunday service time
+    type: string
+    description: e.g. 9:30 AM. Updates the top of the home page, menu, footer and the big time on the Sundays page.
+  - name: service_day
+    label: Service day label
+    type: string
+    description: e.g. Sundays
+  - name: church_name
+    label: Church name
+    type: string
+  - name: short_name
+    label: Logo letters (top left)
+    type: string
+  - name: tagline
+    label: Short intro line (top of the page, computer screens)
+    type: string
+  - name: address_line_1
+    label: Address line 1
+    type: string
+  - name: address_line_2
+    label: Address line 2 (city, state, zip)
+    type: string
+  - name: phone
+    label: Phone
+    type: string
+  - name: email
+    label: Email
+    type: string
+  - name: po_box
+    label: Mailing address (P.O. Box)
+    type: string
+  - name: giving_link
+    label: Online giving link
+    type: string
+  - name: livestream_link
+    label: YouTube live link
+    type: string
+  - name: youtube_link
+    label: YouTube channel link
+    type: string
+  - name: instagram_link
+    label: Instagram link
+    type: string
+  - name: facebook_link
+    label: Facebook link
+    type: string
+  - name: photo_credits
+    label: Photo credits (bottom of every page)
+    type: text
+- name: pastors
+  label: 🙏 Pastors
+  type: file
+  path: _data/pastors.yml
+  format: yaml
+  list: true
+  fields:
+  - name: name
+    label: Name
+    type: string
+    required: true
+  - name: role
+    label: Role
+    type: string
+    description: e.g. Lead Pastor
+  - name: email
+    label: Email
+    type: string
+    description: Optional
+  - name: extension
+    label: Phone extension
+    type: string
+    description: Optional, e.g. 101
+- name: home
+  label: 🏠 Home page
+  type: file
+  path: _data/home.yml
+  format: yaml
+  fields:
+  - name: hero_photo
+    label: Big top photo
+    type: image
+  - name: hero_photo_description
+    label: Big photo description
+    type: string
+    description: Short description of the photo (for people using screen readers).
+  - name: hero_caption
+    label: Big photo caption
+    type: string
+  - name: photo_strip
+    label: Three photos under the big photo
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{label}'
+    fields:
+    - name: photo
+      label: Photo
+      type: image
+    - name: label
+      label: Label
+      type: string
+      description: e.g. Worship
+    - name: description
+      label: Description
+      type: string
+      description: Short description of the photo (for people using screen readers).
+  - name: welcome_label
+    label: 'Welcome: small label'
+    type: string
+  - name: welcome_heading
+    label: 'Welcome: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+  - name: welcome_intro
+    label: 'Welcome: big text'
+    type: text
+  - name: welcome_text
+    label: 'Welcome: small text'
+    type: text
+  - name: explore_label
+    label: 'Explore: small label'
+    type: string
+  - name: explore_heading
+    label: 'Explore: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+  - name: explore_about
+    label: 'Explore: About line'
+    type: string
+  - name: explore_sundays
+    label: 'Explore: Sundays line (after the time)'
+    type: string
+  - name: explore_visit
+    label: 'Explore: Visit line'
+    type: string
+  - name: explore_get_involved
+    label: 'Explore: Get Involved line'
+    type: string
+  - name: explore_give
+    label: 'Explore: Give line'
+    type: string
+  - name: explore_contact
+    label: 'Explore: Contact line'
+    type: string
+  - name: online_label
+    label: 'Watch online: small label'
+    type: string
+  - name: online_heading
+    label: 'Watch online: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+  - name: online_text
+    label: 'Watch online: text'
+    type: text
+- name: about
+  label: 📖 About page
+  type: file
+  path: _data/about.yml
+  format: yaml
+  fields:
+  - name: title
+    label: Page title
+    type: string
+  - name: intro
+    label: Intro
+    type: text
+  - name: photo
+    label: Top photo
+    type: image
+  - name: photo_description
+    label: Top photo description
+    type: string
+    description: Short description of the photo (for people using screen readers).
+  - &id001
+    name: photo_position
+    label: Photo focus point
+    type: string
+    description: Which part of the photo to keep in view, e.g. "50% 50%" is the center, "50% 20%" is near the top.
+  - name: who_label
+    label: 'Who we are: small label'
+    type: string
+  - name: who_heading
+    label: 'Who we are: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+  - name: who_intro
+    label: 'Who we are: big text'
+    type: text
+  - name: who_text
+    label: 'Who we are: text'
+    type: text
+  - name: story_label
+    label: 'Our story: small label'
+    type: string
+  - name: story_heading
+    label: 'Our story: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+  - name: timeline
+    label: 'Our story: timeline'
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{year} · {title}'
+    fields:
+    - name: year
+      label: Year
+      type: string
+    - name: title
+      label: Title
+      type: string
+    - name: text
+      label: Text
+      type: text
+  - name: believe_label
+    label: 'Beliefs: small label'
+    type: string
+  - name: believe_heading
+    label: 'Beliefs: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+  - name: believe_intro
+    label: 'Beliefs: intro'
+    type: text
+  - name: beliefs
+    label: 'Beliefs: list'
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{title}'
+    fields:
+    - name: title
+      label: Title
+      type: string
+    - name: text
+      label: Text
+      type: text
+  - name: pastors_label
+    label: 'Pastors: small label'
+    type: string
+  - name: pastors_heading
+    label: 'Pastors: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+  - name: elders
+    label: Elders (names, separated by commas)
+    type: text
+  - name: deacons
+    label: Deacons (names, separated by commas)
+    type: text
+- name: sundays
+  label: 🎵 Sundays page
+  type: file
+  path: _data/sundays.yml
+  format: yaml
+  fields:
+  - name: title
+    label: Page title
+    type: string
+  - name: intro
+    label: Intro
+    type: text
+    description: The service time itself is set in Church info.
+  - name: photo
+    label: Top photo
+    type: image
+  - name: photo_description
+    label: Top photo description
+    type: string
+    description: Short description of the photo (for people using screen readers).
+  - *id001
+  - name: times_label
+    label: 'Service times: small label'
+    type: string
+  - name: day_label
+    label: Above the big time
+    type: string
+    description: e.g. Every Sunday
+  - name: service_note
+    label: Under the big time
+    type: string
+  - name: expect
+    label: What to expect (A, B, C, D)
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{title}'
+    fields:
+    - name: title
+      label: Title
+      type: string
+    - name: text
+      label: Text
+      type: text
+      description: 'You can add a link like this: [words](https://link.com)'
+  - name: kids_label
+    label: 'Kids: small label'
+    type: string
+  - name: kids_heading
+    label: 'Kids: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+  - name: kids_intro
+    label: 'Kids: big text'
+    type: text
+  - name: kids_text
+    label: 'Kids: text'
+    type: text
+  - name: online_label
+    label: 'Watch online: small label'
+    type: string
+  - name: online_heading
+    label: 'Watch online: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+  - name: online_text
+    label: 'Watch online: text'
+    type: text
+- name: visit
+  label: 📍 Visit page
+  type: file
+  path: _data/visit.yml
+  format: yaml
+  fields:
+  - name: title
+    label: Page title
+    type: string
+  - name: intro
+    label: Intro
+    type: text
+    description: The address and map come from Church info.
+  - name: first_label
+    label: 'First Sunday: small label'
+    type: string
+  - name: first_heading
+    label: 'First Sunday: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+  - name: expect
+    label: 'First Sunday: list'
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{title}'
+    fields:
+    - name: title
+      label: Title
+      type: string
+    - name: text
+      label: Text
+      type: text
+      description: 'You can add a link like this: [words](https://link.com)'
+  - name: office_label
+    label: 'Office hours: small label'
+    type: string
+  - name: office_heading
+    label: 'Office hours: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+  - name: office_hours
+    label: Office hours
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{days}: {hours}'
+    fields:
+    - name: days
+      label: Days
+      type: string
+    - name: hours
+      label: Hours
+      type: string
+  - name: mail_note
+    label: Note under office hours
+    type: text
+- name: get_involved
+  label: 🤝 Get Involved page
+  type: file
+  path: _data/get_involved.yml
+  format: yaml
+  fields:
+  - name: title
+    label: Page title
+    type: string
+  - name: intro
+    label: Intro
+    type: text
+  - name: photo
+    label: Top photo
+    type: image
+  - name: photo_description
+    label: Top photo description
+    type: string
+    description: Short description of the photo (for people using screen readers).
+  - *id001
+  - name: ministries_label
+    label: 'Ministries: small label'
+    type: string
+  - name: ministries_heading
+    label: 'Ministries: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+  - name: ministries
+    label: Ministries
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{name}'
+    fields:
+    - name: name
+      label: Name
+      type: string
+    - name: detail
+      label: Detail (right side)
+      type: string
+      description: e.g. All ages or Tuesdays · 6:30 PM
+    - name: description
+      label: Description
+      type: text
+  - name: weekly_label
+    label: 'Weekly: small label'
+    type: string
+  - name: weekly_heading
+    label: 'Weekly: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+  - name: weekly
+    label: Weekly gatherings
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{day} · {title}'
+    fields:
+    - name: day
+      label: Day (short)
+      type: string
+      description: e.g. WED
+    - name: title
+      label: Title and time
+      type: string
+    - name: text
+      label: Text
+      type: text
+      description: 'You can add a link like this: [words](https://link.com)'
+  - name: events_label
+    label: 'Events: small label'
+    type: string
+  - name: events_heading
+    label: 'Events: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+  - name: no_events_photo
+    label: Photo shown when there are no upcoming events
+    type: image
+  - name: no_events_photo_description
+    label: Its description
+    type: string
+    description: Short description of the photo (for people using screen readers).
+  - name: no_events_title
+    label: Title when there are no upcoming events
+    type: string
+  - name: no_events_text
+    label: Text when there are no upcoming events
+    type: text
+  - name: photos_label
+    label: 'Gallery: small label'
+    type: string
+  - name: photos_heading
+    label: 'Gallery: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+- name: give
+  label: 💚 Give page
+  type: file
+  path: _data/give.yml
+  format: yaml
+  fields:
+  - name: title
+    label: Page title
+    type: string
+  - name: intro
+    label: Intro
+    type: text
+  - name: text
+    label: Text under the intro
+    type: text
+  - name: button_label
+    label: Button words
+    type: string
+    description: The button goes to the giving link in Church info.
+  - name: ways_label
+    label: 'Ways to give: small label'
+    type: string
+  - name: ways_heading
+    label: 'Ways to give: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+  - name: ways
+    label: Ways to give
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{title}'
+    fields:
+    - name: title
+      label: Title
+      type: string
+    - name: text
+      label: Text
+      type: text
+      description: 'You can add a link like this: [words](https://link.com)'
+  - name: where_label
+    label: 'Where it goes: small label'
+    type: string
+  - name: where_heading
+    label: 'Where it goes: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+  - name: where_text
+    label: 'Where it goes: text'
+    type: text
+  - name: where_photo
+    label: 'Where it goes: photo'
+    type: image
+  - name: where_photo_description
+    label: Photo description
+    type: string
+    description: Short description of the photo (for people using screen readers).
+- name: contact
+  label: ✉️ Contact page
+  type: file
+  path: _data/contact.yml
+  format: yaml
+  fields:
+  - name: title
+    label: Page title
+    type: string
+  - name: intro
+    label: Intro
+    type: text
+    description: Phone and email come from Church info; pastors from Pastors.
+  - name: pastors_label
+    label: 'Pastors: small label'
+    type: string
+  - name: pastors_heading
+    label: 'Pastors: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+  - name: prayer_label
+    label: 'Prayer: small label'
+    type: string
+  - name: prayer_heading
+    label: 'Prayer: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+  - name: prayer_text
+    label: 'Prayer: text'
+    type: text
+    description: 'You can add a link like this: [words](https://link.com)'
+  - name: office_list
+    label: Office hours list
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{label}: {value}'
+    fields:
+    - name: label
+      label: Label
+      type: string
+    - name: value
+      label: Value
+      type: string

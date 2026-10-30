@@ -1,0 +1,53 @@
+---
+layout: default
+nav: visit
+head_title: "Plan a Visit · La Habra Christian Church"
+description: "Directions, map and office hours for 1400 Bella Vista Dr, La Habra Heights, CA 90631."
+---
+{%- assign s = site.data.settings -%}{%- assign d = site.data.visit -%}{%- capture addr %}{{ s.address_line_1 }}, {{ s.address_line_2 }}{% endcapture -%}{%- assign q = addr | url_encode -%}
+<main id="main">
+  <section class="page-hero" aria-labelledby="page-title">
+    <p class="num">04 — Visit</p>
+    <h1 class="page-title" id="page-title">{{ d.title }}</h1>
+    <p class="lead page-lead">{% include md.html text=d.intro %}</p>
+  </section>
+
+  <section class="sec sec-flush" aria-labelledby="h-visit">
+    <h2 class="sr-only" id="h-visit">Address and map</h2>
+    <div class="visit-grid">
+      <div class="visit-info">
+        <p class="eyebrow">Address</p>
+        <address>{{ s.address_line_1 }}<br>{{ s.address_line_2 }}</address>
+        <div class="btn-row">
+          <a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination={{ q }}" target="_blank" rel="noopener">Google Maps <span aria-hidden="true">&nearr;</span></a>
+          <a class="btn" href="https://maps.apple.com/?daddr={{ q }}" target="_blank" rel="noopener">Apple Maps <span aria-hidden="true">&nearr;</span></a>
+        </div>
+      </div>
+      <div class="map"><a class="map-fallback" href="https://www.google.com/maps/search/?api=1&amp;query={{ q }}" target="_blank" rel="noopener">Open map &nearr;</a>
+        <iframe title="Map to {{ s.church_name }}" src="https://www.google.com/maps?q={{ s.church_name | url_encode }},+{{ q }}&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-tint" aria-labelledby="h-first">
+    <p class="num">{{ d.first_label }}</p>
+    <h2 class="serif-head" id="h-first">{% include md.html text=d.first_heading %}</h2>
+    <ul class="expect">
+      {%- for e in d.expect %}
+      <li><span>{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><div><h3>{{ e.title }}</h3><p>{% include md.html text=e.text %}</p></div></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section class="sec" aria-labelledby="h-hours">
+    <p class="num">{{ d.office_label }}</p>
+    <h2 class="serif-head" id="h-hours">{% include md.html text=d.office_heading %}</h2>
+    <dl class="hours">
+      {%- for h in d.office_hours %}
+      <div><dt>{{ h.days }}</dt><dd>{{ h.hours }}</dd></div>
+      {%- endfor %}
+    </dl>
+    <p class="muted small">{% include md.html text=d.mail_note %}</p>
+  </section>
+  <a class="next" href="get-involved.html"><span class="eyebrow">Next</span><span class="next-name">Get involved <span class="arr" aria-hidden="true">&rarr;</span></span></a>
+</main>

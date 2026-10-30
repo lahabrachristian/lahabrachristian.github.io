@@ -1,0 +1,62 @@
+---
+layout: default
+nav: about
+head_title: "About · La Habra Christian Church"
+description: "Our story since 1923, what we believe, and our pastors. La Habra Christian Church in La Habra Heights, California. Sundays [time]."
+---
+{%- assign s = site.data.settings -%}{%- assign d = site.data.about -%}
+<main id="main">
+  <section class="page-hero" aria-labelledby="page-title">
+    <p class="num">02 — About</p>
+    <h1 class="page-title" id="page-title">{{ d.title }}</h1>
+    <p class="lead page-lead">{% include md.html text=d.intro %}</p>
+    {%- if d.photo %}
+    <figure class="page-photo"><img src="{{ d.photo | relative_url }}" alt="{{ d.photo_description }}" style="object-position:{{ d.photo_position | default: '50% 50%' }}"></figure>
+    {%- endif %}
+  </section>
+
+  <section class="sec" aria-labelledby="h-who">
+    <p class="num">{{ d.who_label }}</p>
+    <h2 class="serif-head" id="h-who">{% include md.html text=d.who_heading %}</h2>
+    <div class="cols">
+      <p class="lead">{% include md.html text=d.who_intro %}</p>
+      <p>{% include md.html text=d.who_text %}</p>
+    </div>
+  </section>
+
+  <section class="sec sec-tint" aria-labelledby="h-story">
+    <p class="num">{{ d.story_label }}</p>
+    <h2 class="serif-head" id="h-story">{% include md.html text=d.story_heading %}</h2>
+    <ol class="timeline">
+      {%- for t in d.timeline %}
+      <li><span class="t-year">{{ t.year }}</span><div><h3>{{ t.title }}</h3><p>{% include md.html text=t.text %}</p></div></li>
+      {%- endfor %}
+    </ol>
+  </section>
+
+  <section class="sec" aria-labelledby="h-believe">
+    <p class="num">{{ d.believe_label }}</p>
+    <h2 class="serif-head" id="h-believe">{% include md.html text=d.believe_heading %}</h2>
+    <p class="lead narrow">{% include md.html text=d.believe_intro %}</p>
+    <ul class="expect believe">
+      {%- for b in d.beliefs %}
+      <li><span>{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><div><h3>{{ b.title }}</h3><p>{% include md.html text=b.text %}</p></div></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section class="sec sec-tint" aria-labelledby="h-team">
+    <p class="num">{{ d.pastors_label }}</p>
+    <h2 class="serif-head" id="h-team">{% include md.html text=d.pastors_heading %}</h2>
+    <ol class="rows">
+      {%- for p in site.data.pastors %}
+      <li><span class="r-num">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><span class="r-name">{{ p.name }}</span><span class="r-meta">{{ p.role }}</span></li>
+      {%- endfor %}
+    </ol>
+    <div class="cols leaders">
+      <div><p class="eyebrow">Elders</p><p>{{ d.elders }}</p></div>
+      <div><p class="eyebrow">Deacons</p><p>{{ d.deacons }}</p></div>
+    </div>
+  </section>
+  <a class="next" href="sundays.html"><span class="eyebrow">Next</span><span class="next-name">Sundays <span class="arr" aria-hidden="true">&rarr;</span></span></a>
+</main>

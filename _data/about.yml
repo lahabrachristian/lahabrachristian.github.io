@@ -1,0 +1,45 @@
+title: About us
+intro: Sharing Jesus by caring for people. It’s not something we do. It’s who we are.
+photo: /images/community-wide.jpg
+photo_description: Crowd and classic cars at the church car show
+photo_position: 50% 60%
+who_label: Who we are
+who_heading: A church *family* for every age
+who_intro: Whoever you are and wherever you’re coming from, you’re welcome here. We’d love to meet you, worship together, and walk through life with you.
+who_text: Today we’re a church family of all ages, kids and grandparents, longtime members and first-time guests, gathering every Sunday in the hills of La Habra Heights. God isn’t interested in your past because he already knows your life. What matters most to him is how you choose to live the rest of it.
+story_label: Our story
+story_heading: A century of *faith*
+timeline:
+- year: '1923'
+  title: A congregation is born
+  text: After an evangelistic meeting that July, thirty-six charter members founded La Habra Christian Church on October 14, 1923, meeting in a tabernacle at Cypress and First Avenues.
+- year: '1934'
+  title: A new chapel
+  text: The growing congregation built and dedicated a new chapel, its spiritual home for many years.
+- year: '1993'
+  title: Rising from the ashes
+  text: After a fire destroyed the education building, the church added a new multi-purpose building for education, fellowship and outreach.
+- year: '1998'
+  title: Serving young families
+  text: The church opened an Infant Toddler Learning Center for children in the community.
+- year: '2020'
+  title: Faith in a time of crisis
+  text: Under Lead Pastor Jason Kim, the church moved worship online and outdoors and expanded its Benevolence Ministry with drive-through food distribution for families in need.
+believe_label: What we believe
+believe_heading: Centered on *the gospel*
+believe_intro: Our shared faith centers on the gospel of Jesus Christ. Through it, God rescues His people from sin, makes each one complete in Christ, and makes all things new.
+beliefs:
+- title: One God
+  text: Creator of all things, eternally existing as Father, Son and Holy Spirit.
+- title: The Scriptures
+  text: The Bible, Old and New Testaments, is the inspired Word of God and our final authority for what we believe and how we live.
+- title: Jesus Christ
+  text: Fully God and fully man, He died for our sins, rose bodily from the dead, and will return.
+- title: The Holy Spirit
+  text: He glorifies Jesus and makes people alive to God through faith in Christ.
+- title: The good news for everyone
+  text: God commands everyone everywhere to believe the gospel.
+pastors_label: Our pastors
+pastors_heading: Serving *our Savior*
+elders: Victor Alfonso, Sharon Loustaunau, Julio Gonzalez, Joe Laubie, Lydia Godshall, Larry Rohlfing
+deacons: Edwin Aguilar, Jolene Sarnowski, Patricia Alban, Araceli Sosa, Raul Garcia, Gloria Ebers, Judy Pak, Maggie Lin, Maria Alfonso

@@ -1,0 +1,23 @@
+title: Plan a visit
+intro: We’re up in the hills of La Habra Heights. Here’s everything you need for your first Sunday.
+first_label: Your first Sunday
+first_heading: What to *expect*
+expect:
+- title: Sunday at 9:30 AM
+  text: Our worship service starts at 9:30 every Sunday morning.
+- title: Arrive a few minutes early
+  text: Say hi and we’ll help you find your way, and get your kids settled.
+- title: Come as you are
+  text: No dress code. Worship, prayer and a message from the Bible.
+- title: Questions before you come?
+  text: Call [(562) 691-0514](tel:+15626910514) or [send us a note](contact.html).
+office_label: Office hours
+office_heading: When the *office* is open
+office_hours:
+- days: Tuesday – Friday
+  hours: 9:00 AM – 5:00 PM
+- days: Sunday
+  hours: 8:00 AM – 1:00 PM
+- days: Monday & Saturday
+  hours: Closed
+mail_note: 'Mail is forwarded to our P.O. Box: La Habra Christian Church, PO Box 3258, La Habra, CA 90632-3258.'

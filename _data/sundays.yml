@@ -1,0 +1,24 @@
+title: Sundays
+intro: Worship every Sunday at 9:30 AM. Come as you are, we’ll save you a seat.
+photo: /images/worship.jpg
+photo_description: The congregation worshipping in the sanctuary
+photo_position: 50% 40%
+times_label: Service times
+day_label: Every Sunday
+service_note: One service · 1400 Bella Vista Dr
+expect:
+- title: Come as you are
+  text: No dress code and no pressure. Grab a seat anywhere.
+- title: Worship & a message
+  text: Songs, prayer, and teaching from the Bible.
+- title: Kids are welcome
+  text: Children’s Ministry serves ages 6 weeks through 5th grade.
+- title: Say hi
+  text: First time? Arrive a few minutes early and we’ll help you find your way.
+kids_label: For families
+kids_heading: Let the little *children* come
+kids_intro: Our Children’s Ministry gives kids from 6 weeks through 5th grade a loving, secure and fun place to discover God’s love.
+kids_text: Engaging lessons, games and friendships that encourage spiritual growth, working alongside what you teach at home. Students have their own home in Fusion Youth.
+online_label: Watch online
+online_heading: Missed a *Sunday?*
+online_text: Our Sunday service streams live on YouTube, and the latest sermons are always there to catch up on.

@@ -1,0 +1,12 @@
+title: La Habra Christian Church
+url: "https://lahabrachristian.github.io"
+baseurl: ""
+timezone: America/Los_Angeles
+markdown: kramdown
+collections:
+  events:
+    output: false
+exclude:
+  - README.md
+  - .pages.yml
+  - HOW-TO-EDIT.md

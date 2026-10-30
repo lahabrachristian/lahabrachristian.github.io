@@ -1,0 +1,59 @@
+---
+layout: default
+nav: home
+head_title: "La Habra Christian Church · Sundays [time] · La Habra Heights"
+description: "La Habra Christian Church in La Habra Heights, California. Sunday Worship at [time]. Come as you are. 1400 Bella Vista Dr."
+og_title: "La Habra Christian Church"
+---
+{%- assign s = site.data.settings -%}{%- assign d = site.data.home -%}
+<main id="main">
+  <section class="hero" aria-labelledby="wordmark">
+    <h1 class="wordmark" id="wordmark">{{ s.church_name }}</h1>
+    <div class="hero-meta">
+      <p class="when"><span class="dot" aria-hidden="true"></span>{{ s.service_day }} · {{ s.service_time }}</p>
+      <a class="btn btn-dark" href="visit.html">Plan a Visit <span class="arr" aria-hidden="true">&rarr;</span></a>
+    </div>
+    <figure class="hero-photo">
+      <img src="{{ d.hero_photo | relative_url }}" width="1600" height="1000" alt="{{ d.hero_photo_description }}">
+      <figcaption>{{ d.hero_caption }}</figcaption>
+    </figure>
+  </section>
+
+  <section class="strip" aria-label="Life at {{ s.church_name }}">
+    {%- for p in d.photo_strip limit: 3 %}
+    <figure><img src="{{ p.photo | relative_url }}" width="600" height="780" alt="{{ p.description }}" loading="lazy"><figcaption><span>{{ forloop.index | prepend: "0" }}</span>{{ p.label }}</figcaption></figure>
+    {%- endfor %}
+  </section>
+
+  <section class="sec" aria-labelledby="h-welcome">
+    <p class="num">{{ d.welcome_label }}</p>
+    <h2 class="serif-head" id="h-welcome">{% include md.html text=d.welcome_heading %}</h2>
+    <div class="cols">
+      <p class="lead">{% include md.html text=d.welcome_intro %}</p>
+      <div>
+        <p>{% include md.html text=d.welcome_text %}</p>
+        <div class="btn-row"><a class="btn" href="about.html">About us <span class="arr" aria-hidden="true">&rarr;</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-tint" aria-labelledby="h-explore">
+    <p class="num">{{ d.explore_label }}</p>
+    <h2 class="serif-head" id="h-explore">{% include md.html text=d.explore_heading %}</h2>
+    <ol class="rows link-rows">
+      <li><a href="about.html"><span class="r-num">01</span><span class="r-name">About</span><span class="r-meta">{{ d.explore_about }}</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+      <li><a href="sundays.html"><span class="r-num">02</span><span class="r-name">Sundays</span><span class="r-meta">{{ s.service_time }} · {{ d.explore_sundays }}</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+      <li><a href="visit.html"><span class="r-num">03</span><span class="r-name">Visit</span><span class="r-meta">{{ d.explore_visit }}</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+      <li><a href="get-involved.html"><span class="r-num">04</span><span class="r-name">Get Involved</span><span class="r-meta">{{ d.explore_get_involved }}</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+      <li><a href="give.html"><span class="r-num">05</span><span class="r-name">Give</span><span class="r-meta">{{ d.explore_give }}</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+      <li><a href="contact.html"><span class="r-num">06</span><span class="r-name">Contact</span><span class="r-meta">{{ d.explore_contact }}</span><span class="arr" aria-hidden="true">&rarr;</span></a></li>
+    </ol>
+  </section>
+
+  <section class="sec give" aria-labelledby="h-watch">
+    <p class="num">{{ d.online_label }}</p>
+    <h2 class="serif-head light" id="h-watch">{% include md.html text=d.online_heading %}</h2>
+    <p class="give-copy">{% include md.html text=d.online_text %}</p>
+    <div class="btn-row"><a class="btn btn-light" href="{{ s.livestream_link }}" target="_blank" rel="noopener">Watch Live <span class="arr" aria-hidden="true">&rarr;</span></a></div>
+  </section>
+</main>
