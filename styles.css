@@ -239,6 +239,7 @@ address{font-style:normal;font-size:clamp(24px,3.4vw,36px);line-height:1.15;lett
 }
 
 /* editable additions: events list + photo gallery */
+.event-list[hidden],.events[hidden],.gallery[hidden]{display:none!important}
 .event-list{display:grid;gap:16px}
 .events.no-photo{grid-template-columns:1fr}
 .events-body .e-desc{margin-top:10px}
