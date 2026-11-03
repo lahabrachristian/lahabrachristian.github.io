@@ -248,3 +248,5 @@ address{font-style:normal;font-size:clamp(24px,3.4vw,36px);line-height:1.15;lett
 .gallery img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px}
 .gallery figcaption{margin-top:6px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 @media (min-width:760px){.gallery{grid-template-columns:repeat(3,1fr);gap:14px}}
+/* Employment: one long word in the big title */
+.page-title-long{font-size:clamp(44px,15.5vw,200px)}
