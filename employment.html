@@ -1,0 +1,31 @@
+---
+layout: default
+nav: employment
+head_title: "Employment · La Habra Christian Church"
+description: "Job openings at La Habra Christian Church in La Habra Heights, California."
+---
+{%- assign s = site.data.settings -%}{%- assign d = site.data.employment -%}{%- assign apply_email = s.jobs_email | default: s.email -%}{%- assign email_parts = apply_email | split: "@" -%}
+{%- assign jobs = "" | split: "" -%}{%- for j in site.data.jobs -%}{%- if j.title and j.title != "" -%}{%- assign jobs = jobs | push: j -%}{%- endif -%}{%- endfor -%}
+<main id="main">
+  <section class="page-hero" aria-labelledby="page-title">
+    <p class="num">08 — Employment</p>
+    <h1 class="page-title" id="page-title">{{ d.title }}</h1>
+    <p class="lead page-lead">{% include md.html text=d.intro %}</p>
+  </section>
+
+  <section class="sec" aria-labelledby="h-jobs">
+    <p class="num">{{ d.jobs_label }}</p>
+    <h2 class="serif-head" id="h-jobs">{% include md.html text=d.jobs_heading %}</h2>
+    {%- if jobs.size > 0 %}
+    <ol class="rows rows-desc jobs">
+      {%- for j in jobs %}
+      <li><span class="r-num">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><span class="r-name">{{ j.title }}</span>{% if j.type and j.type != "" %}<span class="r-meta">{{ j.type }}</span>{% endif %}<p class="r-desc">{% if j.description and j.description != "" %}{% include md.html text=j.description %}<br>{% endif %}{{ d.apply_text | default: "To apply, email" }} <a href="mailto:{{ apply_email }}?subject={{ 'Application: ' | append: j.title | url_encode | replace: '+', '%20' }}">{{ email_parts[0] }}@<wbr>{{ email_parts[1] }}</a></p></li>
+      {%- endfor %}
+    </ol>
+    {%- else %}
+    {%- assign no_jobs = d.no_jobs_text | default: "No open positions right now — check back soon." %}
+    <p class="lead no-jobs">{% include md.html text=no_jobs %}</p>
+    {%- endif %}
+  </section>
+  <a class="next" href="index.html"><span class="eyebrow">Next</span><span class="next-name">Back home <span class="arr" aria-hidden="true">&rarr;</span></span></a>
+</main>

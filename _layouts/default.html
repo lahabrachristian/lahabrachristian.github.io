@@ -26,6 +26,7 @@
     <a href="get-involved.html"{% if page.nav == "get-involved" %} aria-current="page"{% endif %}>Get Involved</a>
     <a href="give.html"{% if page.nav == "give" %} aria-current="page"{% endif %}>Give</a>
     <a href="contact.html"{% if page.nav == "contact" %} aria-current="page"{% endif %}>Contact</a>
+    <a href="employment.html"{% if page.nav == "employment" %} aria-current="page"{% endif %}>Employment</a>
   </nav>
   <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
 </header>
@@ -39,6 +40,7 @@
     <li><a href="get-involved.html"{% if page.nav == "get-involved" %} aria-current="page"{% endif %}><span>05</span>Get Involved</a></li>
     <li><a href="give.html"{% if page.nav == "give" %} aria-current="page"{% endif %}><span>06</span>Give</a></li>
     <li><a href="contact.html"{% if page.nav == "contact" %} aria-current="page"{% endif %}><span>07</span>Contact</a></li>
+    <li><a href="employment.html"{% if page.nav == "employment" %} aria-current="page"{% endif %}><span>08</span>Employment</a></li>
   </ol>
   <p class="menu-foot">{{ s.service_day }} · {{ s.service_time }}<br>{{ s.address_line_1 }}, {{ s.address_line_2 | split: "," | first }}</p>
 </div>
@@ -67,6 +69,7 @@
     <a href="get-involved.html">Get Involved</a>
     <a href="give.html">Give</a>
     <a href="contact.html">Contact</a>
+    <a href="employment.html">Employment</a>
   </nav>
   <p class="foot-mark" aria-hidden="true">{{ s.church_name }}</p>
   <p class="credits">&copy; {{ site.time | date: "%Y" }} {{ s.church_name }}. {{ s.photo_credits }}</p>

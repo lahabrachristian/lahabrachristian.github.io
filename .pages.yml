@@ -79,6 +79,26 @@ content:
       label: Caption
       type: string
       description: Optional, e.g. Car Show 2026
+- name: jobs
+  label: 💼 Job listings
+  type: file
+  path: _data/jobs.yml
+  format: yaml
+  list: true
+  description: Jobs show on the Employment page. Remove them all and the page says there are no open positions right now.
+  fields:
+  - name: title
+    label: Job title
+    type: string
+    required: true
+  - name: type
+    label: Type
+    type: string
+    description: Optional, e.g. Part-time
+  - name: description
+    label: Short description
+    type: text
+    description: Optional. The “To apply, email …” line is added automatically.
 - name: settings
   label: ⛪ Church info (time, address, phone)
   type: file
@@ -114,6 +134,10 @@ content:
   - name: email
     label: Email
     type: string
+  - name: jobs_email
+    label: Job applications email
+    type: string
+    description: Shown on the Employment page as “To apply, email …”
   - name: po_box
     label: Mailing address (P.O. Box)
     type: string
@@ -668,3 +692,30 @@ content:
     - name: value
       label: Value
       type: string
+- name: employment
+  label: 💼 Employment page
+  type: file
+  path: _data/employment.yml
+  format: yaml
+  fields:
+  - name: title
+    label: Page title
+    type: string
+  - name: intro
+    label: Intro
+    type: text
+    description: Jobs come from Job listings; the apply email from Church info.
+  - name: jobs_label
+    label: 'Jobs: small label'
+    type: string
+  - name: jobs_heading
+    label: 'Jobs: heading'
+    type: string
+    description: 'Tip: put *stars* around a word to make it the fancy green italic word.'
+  - name: apply_text
+    label: Words before the apply email
+    type: string
+    description: e.g. To apply, email
+  - name: no_jobs_text
+    label: Message when there are no jobs
+    type: text
