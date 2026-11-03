@@ -61,6 +61,10 @@ weekly:
     title: ESL class - 6:30 PM to 8:00 PM
     text: Free English classes in a friendly and welcoming space. All levels
       welcome! Meet in room 6
+  - day: FRI
+    title: "Chinese Bible Study "
+    text: A warm mandarin speaking group where we study the bible, share life, and
+      pray for on another. Contact Wendy or Mary.
 events_label: Events
 events_heading: Coming *up*
 no_events_photo: /images/community-wide.jpg
