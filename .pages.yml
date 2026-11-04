@@ -182,6 +182,10 @@ content:
     label: Phone extension
     type: string
     description: Optional, e.g. 101
+  - name: photo
+    label: Photo
+    type: image
+    description: Optional. A clear headshot works best.
 - name: home
   label: 🏠 Home page
   type: file

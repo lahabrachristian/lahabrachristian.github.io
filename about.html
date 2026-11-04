@@ -50,7 +50,7 @@ description: "Our story since 1923, what we believe, and our pastors. La Habra C
     <h2 class="serif-head" id="h-team">{% include md.html text=d.pastors_heading %}</h2>
     <ol class="rows">
       {%- for p in site.data.pastors %}
-      <li><span class="r-num">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><span class="r-name">{{ p.name }}</span><span class="r-meta">{{ p.role }}</span></li>
+      <li{% if p.photo and p.photo != "" %} class="has-photo"{% endif %}><span class="r-num">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><span class="r-name">{% if p.photo and p.photo != "" %}<img class="r-photo" src="{{ p.photo | relative_url }}" width="88" height="88" alt="{{ p.name }}" loading="lazy">{% endif %}{{ p.name }}</span><span class="r-meta">{{ p.role }}</span></li>
       {%- endfor %}
     </ol>
     <div class="cols leaders">

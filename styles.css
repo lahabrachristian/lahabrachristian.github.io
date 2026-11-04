@@ -250,3 +250,14 @@ address{font-style:normal;font-size:clamp(24px,3.4vw,36px);line-height:1.15;lett
 @media (min-width:760px){.gallery{grid-template-columns:repeat(3,1fr);gap:14px}}
 /* Employment: one long word in the big title */
 .page-title-long{font-size:clamp(44px,15.5vw,200px)}
+
+/* Pastor photos (optional; only rows with a photo get the has-photo class) */
+.rows li.has-photo{align-items:center}
+.has-photo .r-name{display:flex;align-items:center;gap:14px}
+.r-photo{flex:none;width:60px;height:60px;border-radius:50%;object-fit:cover;object-position:50% 30%;background:var(--line)}
+.contact-rows .r-photo{width:44px;height:44px}
+@media (min-width:760px){
+  .has-photo .r-name{gap:20px}
+  .r-photo{width:88px;height:88px}
+  .contact-rows .r-photo{width:56px;height:56px}
+}
